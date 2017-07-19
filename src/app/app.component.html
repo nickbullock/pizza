@@ -1,0 +1,32 @@
+
+<md-toolbar color="primary">
+  <span>Мама считает пиццу!</span>
+  <i class="material-icons">favorite</i>
+</md-toolbar>
+<div class="pizza-wrap">
+  <div class="pizza-list">
+    <md-list>
+      <md-list-item *ngFor="let pizza of pizzas">
+        <button color="primary" md-raised-button (click)="countPizza(pizza, 'big')">{{pizza.name}}</button>
+        <button color="accent" md-raised-button (click)="countPizza(pizza, 'small')">Мал.</button>
+        <!--<i class="material-icons">edit</i>-->
+        <!--<i class="material-icons">delete</i>-->
+      </md-list-item>
+      <!--<md-list-item><button md-raised-button>Добавить пиццу</button></md-list-item>-->
+    </md-list>
+  </div>
+  <div class="pizza-counters">
+    <md-input-container *ngFor="let component of components">
+      <input type="number" [(ngModel)]="model[component]" mdInput placeholder="{{component}}">
+    </md-input-container>
+    <!--<button md-raised-button>Добавить ингридиент</button>-->
+  </div>
+
+  <div class="pizza-save">
+    <button md-raised-button (click)="save(model)" color="warn">Cохранить<i class="material-icons">check</i></button>
+    <button md-raised-button (click)="reset(model)" color="error">Очистить</button>
+  </div>
+</div>
+
+
+
